@@ -25,6 +25,7 @@ def scrape_all():
     }
 
     # Stop webdriver and return data
+
     browser.quit()
     return data
 
@@ -53,7 +54,8 @@ def mars_news(browser):
 
     except AttributeError:
         return None, None
-
+    print(news_title)
+    print(news_p)
     return news_title, news_p
 
 
@@ -80,6 +82,9 @@ def featured_image(browser):
 
     # Use the base url to create an absolute url
     img_url = f'https://data-class-jpl-space.s3.amazonaws.com/JPL_Space/{img_url_rel}'
+
+    print(img_url)
+    return img_url
 
     return img_url
 
@@ -123,7 +128,7 @@ def hemispheres(browser):
         hemispheres["title"] = title
         hemisphere_image_urls.append(hemispheres)
         browser.back()
-        
+    print(hemisphere_image_urls)    
     return (hemisphere_image_urls)
 
 if __name__ == "__main__":
